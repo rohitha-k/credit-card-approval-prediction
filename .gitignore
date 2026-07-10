@@ -1,0 +1,17 @@
+# Ignore trained models
+*.pkl
+
+# Ignore datasets
+dataset/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+
+# VS Code settings
+.vscode/
+.idea/

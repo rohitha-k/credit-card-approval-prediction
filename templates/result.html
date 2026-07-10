@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Prediction Result</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="result-container">
+      <div class="card">
+        <h1>Credit Card Approval Result</h1>
+
+        {% if result == "Approved" %}
+
+        <div class="approved">✅ Congratulations!</div>
+
+        <h2>Your Credit Card Application is</h2>
+
+        <h1 class="green">APPROVED</h1>
+
+        {% elif result == "Rejected" %}
+
+        <div class="rejected">❌ Sorry!</div>
+
+        <h2>Your Credit Card Application is</h2>
+
+        <h1 class="red">REJECTED</h1>
+
+        {% else %}
+
+        <h2>{{ result }}</h2>
+
+        {% endif %} {% if probability %}
+
+        <div class="probability-box">
+          <h3>Prediction Confidence</h3>
+
+          <div class="progress">
+            <div
+              class="progress-bar"
+              style="width: {{ probability|round(2) }}%;"
+            >
+              {{ probability|round(2) }}%
+            </div>
+          </div>
+        </div>
+
+        {% endif %}
+
+        <div class="summary">
+          <table>
+            <tr>
+              <th>Status</th>
+
+              <td>{{ result }}</td>
+            </tr>
+
+            {% if probability %}
+
+            <tr>
+              <th>Confidence</th>
+
+              <td>{{ probability }}%</td>
+            </tr>
+
+            {% endif %}
+          </table>
+        </div>
+
+        <br />
+
+        <a href="/">
+          <button>Predict Another Applicant</button>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
