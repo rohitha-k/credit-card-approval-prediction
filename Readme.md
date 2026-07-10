@@ -304,7 +304,7 @@ Prediction
 
 ## 👩‍💻 Author
 
-**Nageswari**
+**KALLURI ROHITHA**
 
 B.Tech – Computer Science and Engineering
 
