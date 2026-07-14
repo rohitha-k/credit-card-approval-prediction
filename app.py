@@ -1,9 +1,16 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import joblib
+import os
+import urllib.request
 
 app = Flask(__name__)
-
+MODEL_PATH = "model.pkl"
+MODEL_URL = "https://drive.google.com/file/d/1P2DriwQ0RPen0UX44xbYig7FaT0_2KUx/view?usp=sharing" 
+if not os.path.exists(MODEL_PATH):
+    print("Downloading model.pkl...")
+    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+    print("Download completed.")
 # ==========================================================
 # LOAD MODEL
 # ==========================================================
